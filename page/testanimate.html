@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test animate css</title>
+	<link rel="stylesheet" type="text/css" href="../css/animate.css">
+	<script type="text/javascript" src="../lib/jquery.min.js"></script>
+	<style type="text/css">
+		.test {
+			width: 100px;
+			height: 100px;
+			border: solid 2px green;
+			display: inline-block;
+			margin: 20px;
+		}
+		.circus{
+			border-radius: 50px;
+		  -webkit-animation-iteration-count: 4;
+		}
+	</style>
+</head>
+<body>
+	 <div class="test animated infinite   bounce"> bounce => infinite</div>
+	<div class="test animated flash">flash</div>
+	<div class="test animated infinite pulse">pulse  => infinite</div>
+	<div class="test circus animated  rubberBand">rubberBand</div>
+	<div class="test animated shake">shake</div>
+	<div class="test animated swing">swing</div>
+	<div class="test animated tada">tada</div>
+	<div class="test animated wobble">wobble</div>
+	<div class="test animated bounceIn">bounceIn</div>
+	<div class="test animated bounceInDown">bounceInDown</div>
+	<div class="test animated bounceInLeft">bounceInLeft</div>
+	<div class="test animated bounceInRight">bounceInRight</div>
+	<div class="test animated bounceOut">bounceOut</div>
+	<div class="test animated bounceOutDown">bounceOutDown</div>
+	<div class="test animated bounceOutLeft">bounceOutLeft</div>
+	<div class="test animated bounceOutRight">bounceOutRight</div>
+	<div class="test animated bounceOutUp">bounceOutUp</div>
+	<div class="test animated fadeIn">fadeIn</div>
+	<div class="test animated fadeInDown">fadeInDown</div>
+	<div class="test animated fadeInDownBig">fadeInDownBig</div>
+	<div class="test animated fadeInLeft">fadeInLeft</div>
+	<div class="test animated fadeInLeftBig">fadeInLeftBig</div>
+	<div class="test animated fadeInRight">fadeInRight</div>
+	<div class="test animated fadeInRightBig">fadeInRightBig</div>
+	<div class="test animated fadeInUp">fadeInUp</div>
+	<div class="test animated fadeInUpBig">fadeInUpBig</div>
+	<div class="test animated fadeOut">fadeOut</div>
+	<div class="test animated fadeOutDown">fadeOutDown</div>
+	<div class="test animated fadeOutDownBig">fadeOutDownBig</div>
+	<div class="test animated fadeOutLeft">fadeOutLeft</div>
+	<div class="test animated fadeOutLeftBig">fadeOutLeftBig</div>
+	<div class="test animated fadeOutRight">fadeOutRight</div>
+	<div class="test animated fadeOutRightBig">fadeOutRightBig</div>
+	<div class="test animated fadeOutUp">fadeOutUp</div>
+	<div class="test animated fadeOutUpBig">fadeOutUpBig</div>
+	<div class="test animated flipInX">flipInX</div>
+	<div class="test animated flipInY">flipInY</div>
+	<div class="test animated flipOutX">flipOutX</div>
+	<div class="test animated flipOutY infinite ">flipOutY</div>
+	<div class="test animated lightSpeedIn  ">lightSpeedIn</div>
+	<div class="test animated lightSpeedOut  ">lightSpeedOut</div>
+	<div class="test animated rotateIn  ">rotateIn</div>
+	<div class="test animated rotateInDownLeft  ">rotateInDownLeft</div>
+	<div class="test animated rotateInDownRight  ">rotateInDownRight</div>
+	<div class="test animated rotateInUpLeft">rotateInUpLeft</div>
+	<div class="test animated rotateInUpRight">rotateInUpRight</div>
+	<div class="test animated rotateOut">rotateOut</div>
+	<div class="test animated rotateOutDownLeft">rotateOutDownLeft</div>
+	<div class="test animated rotateOutDownRight">rotateOutDownRight</div>
+	<div class="test animated rotateOutUpLeft">rotateOutUpLeft</div>
+	<div class="test animated rotateOutUpRight">rotateOutUpRight</div>
+	<div class="test animated hinge">hinge</div>
+	<div class="test animated rollIn">rollIn</div>
+	<div class="test animated rollOut">rollOut</div>
+	<div class="test animated zoomIn">zoomIn</div>
+	<div class="test animated zoomInDown">zoomInDown</div>
+	<div class="test animated zoomInLeft">zoomInLeft</div>
+	<div class="test animated zoomInRight">zoomInRight</div>
+	<div class="test animated zoomInUp">zoomInUp</div>
+	<div class="test animated zoomOut">zoomOut</div>
+	<div class="test animated zoomOutDown">zoomOutDown</div>
+	<div class="test animated zoomOutLeft">zoomOutLeft</div>
+	<div class="test animated zoomOutUp">zoomOutUp</div>
+	<div class="test animated slideInDown">slideInDown</div>
+	<div class="test animated slideInLeft">slideInLeft</div>
+	<div class="test animated slideInRight">slideInRight</div>
+	<div class="test animated slideInUp">slideInUp</div>
+	<div class="test animated slideOutDown">slideOutDown</div>
+	<div class="test animated slideOutLeft">slideOutLeft</div>
+	<div class="test animated slideOutRight">slideOutRight</div> 
+	<div class="test animated slideOutUp">slideOutUp</div>
+
+
+
+
+<script type="text/javascript">
+	$('.test').hover(function  () {
+		var that = this;
+
+		$(this).removeClass('pulse');
+		setTimeout(function() {
+			$(that).addClass('pulse')
+		}, 10);
+	});
+</script>
+
+
+
+
+
+</body>
+</html>
