@@ -1,0 +1,2 @@
+# Give_Me_Tips
+Give_Me_Tips插件旨在区分当前吧的一些特性，便于开发调试等
