@@ -121,7 +121,17 @@ getConf(CONF_URL,function  (result) {
 
 window.addEventListener('load',function  () {
 	renderData();
+    closeIframe();
 },false);
+
+function closeIframe () {
+    var $btn = $('.btn-close');
+    $btn.on('click',function  () {
+        chrome.runtime.sendMessage({code:'close'});
+    });
+}
+
+
 
 /**
  * domCreate dom节点生成

@@ -33,6 +33,44 @@ body {
 	border-radius: 4px;
 	background: #474747 url(/img/loading.gif) center center no-repeat
 }
+.btn-close {
+    width: 0;
+    height: 0;
+    border: 10px;
+    border-top-color: transparent;
+
+}
+/***************************************
+css3 close btn 
+***************************************/
+ .btn-close {
+    margin-left: 86%;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.btn-close::before, .btn-close::after {
+    width: 100%;
+    height: 2px;
+    background: red;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    content: '';
+}
+.btn-close::before {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.btn-close::after {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(-45deg);
+}
+/*css3 close btn  ends*/
+
 /*****************************************
 	css3 loading starts
 ******************************************/
