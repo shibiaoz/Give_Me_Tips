@@ -86,7 +86,7 @@ function renderData () {
         if(!GlobalData.isPlatfrom){
             return;
         }
-        var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS.list) || [];
+        var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS[officialType] && CONF.CONTENT_TIPS[officialType].list) || [];
         var strList = '';
         list.forEach(function  (value,index) {
             strList += new domCreate(value).getHtmlStr();
@@ -94,10 +94,13 @@ function renderData () {
         $('#forum_description').html(strList);
         $('body').on('mouseenter','.j-function-item',function  (event) {
             var that = this;
-           $(this).find('.flow-tips').removeClass('display-hide').removeClass('hinge');
+           $(this).parent().find('.flow-tips,.flow-img').addClass('display-hide').removeClass('swing');
            setTimeout(function() {
-                $(that).find('.flow-tips').addClass('hinge');
+                $(that).find('.flow-tips,.flow-img').removeClass('display-hide').addClass('swing');
            }, 10);
+        });
+        $('#forum_description').on('mouseleave',function  () {
+             $(this).parent().find('.flow-tips,.flow-img').addClass('display-hide').removeClass('swing');
         });
         $('#data').hover(function (event) {
             var that = this;
@@ -134,11 +137,11 @@ function  domCreate (obj) {
 domCreate.prototype.config = {
     link:[
         '<li class="function-item j-function-item" title="<%=tips%>">',
-            '<a href="<%=link%>" title="<%=text%>">',
+            '<a href="<%=link%>" target="_blank" title="<%=text%>">',
                 '<%= text%>',
             '</a>',
-            '<div class="flow-tips display-hide animated hinge"><%=tips%></div>',
-            '<div class="tips display-hide animated">',
+            '<div class="flow-tips display-hide animated swing"><%=tips%></div>',
+            '<div class="tips flow-img display-hide animated">',
                 '<img src="<%=showPic%>"/>',
             '</div>',
         '</li>'
@@ -149,7 +152,7 @@ domCreate.prototype.config = {
                 '<%= text%>',
             '</span>',
             '<div class="flow-tips display-hide animated "><%= tips%></div>',
-            '<div class="tips display-hide">',
+            '<div class="tips flow-img display-hide animated">',
                 '<img src="<%=showPic%>"/>',
             '</div>',
         '</li>'

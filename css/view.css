@@ -17,7 +17,7 @@ body {
 }
 .data-wraper {
     margin: 0 auto;
-    border: solid 1px green;
+   /*  border: solid 1px green; */
 }
 .display-hide {
     display: none; 
@@ -47,7 +47,6 @@ body {
   width: 8px;
   height: 8px;
   background-color: #333;
- 
   border-radius: 100%;
   position: absolute;
   -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
@@ -182,10 +181,23 @@ body {
     position: relative;
 }
 .flow-tips {
+  position: absolute;
+  top: -43px;
+  left: -86px;
+  width: 300px;
+  line-height: 18px;
+  font-size: 20px;
+}
+.flow-img {
     position: absolute;
-    top: -100px;
-    width: 200px;
+    bottom: -241px;
+    left: -47px;
+    width: 300px;
     line-height: 18px;
-    border: solid 1px yellow;
-
+    font-size: 20px;
+    width: 400px;
+    height: 200px;
+}
+.flow-img img {
+    width: 100%;
 }
