@@ -1,5 +1,6 @@
 var KEY = localStorage.getItem('__pp_code') || '';
-var CONF_URL = 'http://fedev.baidu.com/~zhangshibiao/forum_conf.json?';
+//var CONF_URL = 'http://fedev.baidu.com/~zhangshibiao/forum_conf.json?';
+var CONF_URL = 'http://fedev.baidu.com/~zhangshibiao/give_me_tips/tmp.json?';
 var GlobalData = {
     official:{},
     officialType:null,
@@ -86,7 +87,7 @@ function renderData () {
         if(!GlobalData.isPlatfrom){
             return;
         }
-        var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS[officialType] && CONF.CONTENT_TIPS[officialType].list) || [];
+        var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS[officialType]) || [];
         var strList = '';
         list.forEach(function  (value,index) {
             strList += new domCreate(value).getHtmlStr();
