@@ -1,5 +1,6 @@
 # Give_Me_Tips
-Give_Me_Tips插件旨在区分当前吧的一些特性，便于开发调试等
+平台化吧有很多不同类型的吧，不同的吧有不同特点，此插件旨在帮助迅速定位当前浏览的吧类型，便于开发调试等
+可以根据吧的特点来配插件所要展示的内容
 [点我配置](http://fedev.baidu.com/~zhangshibiao/give_me_tips/index.php)
 
 ## 如何安装 ##
