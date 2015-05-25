@@ -98,6 +98,11 @@ function renderData () {
         if(!GlobalData.isPlatfrom){
             return;
         }
+        if (officialType === undefined) {
+            // 平台化非官方吧
+            $('#forum_description').hide().siblings('.tab-wraper').hide();
+            return;
+        }
         renderAllOfficialType();// 渲染所有的官方吧类型，并且高亮当前官方吧
         officialSpecialItem(officialType);
         bindEvents();
