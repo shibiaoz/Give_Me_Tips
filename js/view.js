@@ -19,6 +19,17 @@ var CONF = {
         8: '垂直化普通类目'
     }*/
 }
+var SETTINGS = {
+                    trigger:'click',
+                    title:'Pop Title',
+                    content:'<p>This is webui popover demo.</p><p>just enjoy it and have fun !</p>',
+                    width:600,
+                    height:200,                      
+                    multi:true,                     
+                    closeable:true,
+                    style:'',
+                    padding:true
+                };
 var frameUrl = new Uri(location.href);
 var currentUrl = new Uri(decodeURIComponent(frameUrl.getQueryParamValue('url')));
     currentUrl += '&__type=json&__qa=' + KEY;
@@ -87,7 +98,10 @@ function renderData () {
         if(!GlobalData.isPlatfrom){
             return;
         }
-        var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS[officialType]) || [];
+        renderAllOfficialType();// 渲染所有的官方吧类型，并且高亮当前官方吧
+        officialSpecialItem(officialType);
+        bindEvents();
+        /*var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS[officialType]) || [];
         var strList = '';
         list.forEach(function  (value,index) {
             strList += new domCreate(value).getHtmlStr();
@@ -99,8 +113,8 @@ function renderData () {
            setTimeout(function() {
                 $(that).find('.flow-tips,.flow-img').removeClass('display-hide').addClass('swing');
            }, 10);
-        });
-        $('#forum_description').on('mouseleave',function  () {
+        });*/
+        /*$('#forum_description').on('mouseleave',function  () {
              $(this).parent().find('.flow-tips,.flow-img').addClass('display-hide').removeClass('swing');
         });
         $('#data').hover(function (event) {
@@ -109,7 +123,7 @@ function renderData () {
             setTimeout(function() {
                 $(that).addClass('shake');
             }, 10);
-        });
+        });*/
     }
 	getData(currentUrl,callback);
 }
@@ -131,8 +145,84 @@ function closeIframe () {
         chrome.runtime.sendMessage({code:'close'});
     });
 }
+/**
+ * 渲染所有的官方吧类型，并且高亮当前官方吧
+ */
+function renderAllOfficialType () {
+    var keyTypes = CONF && CONF['FORM_KEY_TYPE'] || [];
+    var officialType = parseInt(GlobalData && GlobalData.officialType);
+    var str = '';
+    var tmpObj = {};
+    keyTypes.forEach(function (value, index) {
+         tmpObj['isActive'] = ''
+        if (index === officialType) {
+            // 当前官方吧
+            tmpObj['isActive'] = 'active';
+        }
+        tmpObj['officialName'] = value;
+        str += tplFormat(officialTypeTpl(), tmpObj);
+    });
+    $('#official-type-name').html(str);
+}
 
-
+function officialTypeTpl () {
+      var str = '<li  class="<%=isActive%>"><span><%=officialName%><span></li>';
+      return str;
+}
+function tplFormat (str, obj) {
+    var tpl = str ||'';
+    tpl = tpl.replace(/<%=[\s]?([^%>]+)?%>/igm, function  (s0,s1) {
+        return obj[s1];
+    });
+    return tpl;
+}
+function officialSpecialItem (toRenderType) {
+    var list = (CONF.CONTENT_TIPS && CONF.CONTENT_TIPS[toRenderType]) || [];
+    var strList = '';
+    list.forEach(function  (value,index) {
+        strList += new domCreate(value).getHtmlStr();
+    });
+    $('#forum_description').html(strList);
+    itemBindpopover();
+    // $('body').on('mouseenter','.j-function-item',function  (event) {
+    //    var that = this;
+    //     $(this).parent().find('.flow-tips,.flow-img').addClass('display-hide').removeClass('swing');
+    //     setTimeout(function() {
+    //         $(that).find('.flow-tips,.flow-img').removeClass('display-hide').addClass('swing');
+    //     }, 10);
+    // });
+}
+/**
+ * 绑定事件
+ */
+function bindEvents () {
+    $('#official-type-name').on('click', 'li', function  () {
+       var index = $(this).index();
+       $(this).addClass('active').siblings('li').removeClass('active');
+       officialSpecialItem(index); 
+    });
+   // $('#testtestsets').webuiPopover('destroy').webuiPopover(SETTINGS);
+}
+function itemBindpopover () {
+   $.each($('#forum_description').find('.j-function-item'), function  (index, value) {
+        $(value).data('placement','top');
+        //data-placement="top"
+        if (index ===0) {
+            $(value).data('placement', 'top-right')
+        }
+        var title =  $(value).find('.flow-tips').html();
+        var content = $(value).find('.flow-img').html(); 
+        if ($(value).find('a').size()) {
+            content = $(value).find('a').prop('outerHTML') + content;
+        }
+        var obj = {
+            title: title,
+            content: content
+        };
+        var settings = $.extend({},SETTINGS,obj);
+        $(this).webuiPopover('destroy').webuiPopover(settings);
+    });
+}
 
 /**
  * domCreate dom节点生成
@@ -147,7 +237,7 @@ function  domCreate (obj) {
 }
 domCreate.prototype.config = {
     link:[
-        '<li class="function-item j-function-item" title="<%=tips%>">',
+        '<li class="function-item j-function-item function-item-light" title="<%=tips%>">',
             '<a href="<%=link%>" target="_blank" title="<%=text%>">',
                 '<%= text%>',
             '</a>',
@@ -158,7 +248,7 @@ domCreate.prototype.config = {
         '</li>'
     ].join(''),
     text:[
-        '<li class="function-item j-function-item" title="<%=tips%>">',
+        '<li class="function-item j-function-item function-item-light" title="<%=tips%>">',
             '<span  title="<%=text%>">',
                 '<%= text%>',
             '</span>',

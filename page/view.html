@@ -1,19 +1,23 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="/css/animate.css">
+    <head><!-- 
+        <link rel="stylesheet" type="text/css" href="/css/animate.css"> -->
         <link rel="stylesheet" href="/css/view.css">
+        <link rel="stylesheet" type="text/css" href="/css/jquery.webui-popover.min.css">
         
     </head>
     <body>
         <div id="data-wraper" class="display-hide data-wraper">
-             <div class="btn-close"></div>
+            <div class="btn-close"></div>
             <div id="platform_type" class="head_platform head-platform-title"></div>
             <div id="data-content" class="data-content">
-                <div id="data" class="head_platform head-platform-title animated "></div>    
-                <ul id="forum_description">
-                   
-                </ul>
+                <div id="data" class="head_platform head-platform-title">
+                    
+                </div>
+                <div class="tab-wraper clearfix">
+                    <ul id="official-type-name"></ul>
+                </div>    
+                <ul id="forum_description" class="forum_description"></ul>
             </div>
             
         </div>
@@ -42,6 +46,7 @@
 
         <script type="text/javascript" src="/lib/uri.js"></script>
         <script type="text/javascript" src="/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.webui-popover.min.js"></script>
         <script type="text/javascript" src="/js/view.js"></script>
     </body>
 </html>

@@ -3,7 +3,8 @@ html {
 }
 ul,li {
     list-style-type: none;
-
+    margin: 0;
+    padding: 0;
 }
 a {
     text-decoration: none;
@@ -70,6 +71,57 @@ css3 close btn
     transform: rotate(-45deg);
 }
 /*css3 close btn  ends*/
+
+
+
+/*****************************************
+   tab compent starts
+******************************************/
+.clearfix::before, .clearfix::after {
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.tab-wraper {
+    float: left;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    border-bottom:1px solid #47a3da;
+}
+.tab-wraper ul > li {
+    margin-left: 10px;
+    padding: 10px;
+    position: relative;
+    top: 1px;
+    float: left;
+    color: #C7C4C4;
+    border: 1px solid #becbd2;
+    border-radius: 2px;
+}
+.tab-wraper ul > li:first-child {
+    margin-left: 0;
+}
+.tab-wraper ul > .active {
+    box-shadow: inset 0 2px #47a3da;
+    position: relative;
+    top: 1px;
+    z-index: 1;
+    border: 1px solid #47a3da;
+    border-bottom: solid 1px #fff;
+    color: #f35626;
+}
+.tab-wraper ul > li:hover {
+    color: black;
+}
+
+/*tab compent  ends*/
+
+
+
+
+
+
 
 /*****************************************
 	css3 loading starts
@@ -215,9 +267,15 @@ css3 close btn
     margin-right: 10px;
     margin-bottom: 20px;
     border-radius: 50px;
-    background: #f35626;
+    background: rgba(128, 128, 128, 0.63);
     text-align: center;
     position: relative;
+}
+.webui-popover-content img {
+    width: 100%;
+}
+.function-item-light {
+    background: #f35626;
 }
 .flow-tips {
   position: absolute;
@@ -239,4 +297,10 @@ css3 close btn
 }
 .flow-img img {
     width: 100%;
+}
+.forum_description {
+    padding-top: 100px;
+    min-height: 200px;
+    border: 1px solid #becbd2;
+    border-top: none;
 }
