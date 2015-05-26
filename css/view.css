@@ -270,6 +270,8 @@ css3 close btn
     background: rgba(128, 128, 128, 0.63);
     text-align: center;
     position: relative;
+    font-size: 20px;
+    color: white;
 }
 .webui-popover-content img {
     width: 100%;
@@ -303,4 +305,10 @@ css3 close btn
     min-height: 200px;
     border: 1px solid #becbd2;
     border-top: none;
+}
+.forum_description .forum_description_tips {
+    position: relative;
+    top: -50px;
+    color: #f35626;
+    padding-left: 10px;
 }

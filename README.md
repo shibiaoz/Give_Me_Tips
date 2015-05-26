@@ -5,6 +5,9 @@
 可以根据吧的特点来配插件所要展示的内容
 [点我配置](http://fedev.baidu.com/~zhangshibiao/give_me_tips/index.php)
 
+## 注意
+1. 如果出现乱码情况，切换浏览器的编码方式为`自动切换`
+
 ## 如何安装 ##
  1. 安装，clone或者download压缩包，打开浏览器输入url chrome url :  chrome://extensions/,点击右上角选择“开发者模式”
  

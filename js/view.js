@@ -28,7 +28,8 @@ var SETTINGS = {
                     multi:true,                     
                     closeable:true,
                     style:'',
-                    padding:true
+                    padding:true,
+                    multi:false,
                 };
 var frameUrl = new Uri(location.href);
 var currentUrl = new Uri(decodeURIComponent(frameUrl.getQueryParamValue('url')));
@@ -58,7 +59,7 @@ function getConf (url,callback) {
     b.send();
 }
 function renderData () {
-	var oDiv = document.getElementById('data');
+	//var oDiv = document.getElementById('data');
 	var callback = function  (data) {
         $('#loading').hide();
         $('#data-wraper').show();
@@ -90,9 +91,17 @@ function renderData () {
 	}
     var showTips = function  () {
         var officialType =  GlobalData.officialType;
-        oDiv.innerHTML = CONF.FORM_KEY_TYPE[officialType] || '非官方属性吧！';
-        $('#data').addClass('fadeInUpBig');
-        var platformTypeStr = GlobalData.isPlatfrom ? '运营中心的吧' : '非运营中心吧，ps:主要功能提示是针对运营中心的，你可以关闭了！'
+        var str = "";
+        //oDiv.innerHTML = CONF.FORM_KEY_TYPE[officialType] || '非官方属性吧！';
+        //$('#data').addClass('fadeInUpBig');
+        var platformTypeStr = '';
+        if (GlobalData.isPlatfrom){
+            platformTypeStr ='本吧是' + (CONF.FORM_KEY_TYPE[officialType] || '普通吧') + ',隶属于运营中心的吧';
+        }
+        else {
+            // 非运营中心的吧
+            platformTypeStr = '本吧隶属于产品中心的吧';
+        }
         $('#platform_type').html(platformTypeStr);
         GlobalData.isPlatfrom ? '' : $('#data-content').hide();
         if(!GlobalData.isPlatfrom){
@@ -100,7 +109,7 @@ function renderData () {
         }
         if (officialType === undefined) {
             // 平台化非官方吧
-            $('#forum_description').hide().siblings('.tab-wraper').hide();
+            $('.j_forum_description').hide().siblings('.tab-wraper').hide();
             return;
         }
         renderAllOfficialType();// 渲染所有的官方吧类型，并且高亮当前官方吧
@@ -202,6 +211,7 @@ function officialSpecialItem (toRenderType) {
  */
 function bindEvents () {
     $('#official-type-name').on('click', 'li', function  () {
+       debugger;
        var index = $(this).index();
        $(this).addClass('active').siblings('li').removeClass('active');
        officialSpecialItem(index); 
