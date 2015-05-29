@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Show Me You are",
-    "version": "1.0",
+    "version": "1.1",
     "description": "Show Me You are",
     "icons": {
         "16": "images/icon16.png",
