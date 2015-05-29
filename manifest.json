@@ -19,4 +19,3 @@
       "scripts": [ "lib/uri.js","js/background.js" ]
    }
 }
-//"http://*.baidu.com/", "tabs"
