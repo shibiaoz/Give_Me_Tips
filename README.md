@@ -5,7 +5,7 @@
 可以根据吧的特点来配插件所要展示的内容
 ## 快捷安装方式
 1. 如果你能翻墙的话
-  [点我点我](https://chrome.google.com/webstore/detail/show-me-you-are/oeppgkfmeappdbakoabgmihbjjoiofen)
+  [点我点我](https://chrome.google.com/webstore/detail/show-me-you-are/oeppgkfmeappdbakoabgmihbjjoiofen)  添加至chrome
 2. 如果你不能翻墙，稍微多两步
   [点我下载个压缩包](http://fedev.baidu.com/~zhangshibiao/tools/Show-Me-You-are_v1.1.rar) [ps内网才行]
   然后解压缩，里面有 xxx.crx,打开浏览器输入`chrome://extensions/`,把那个xxx.crx直接拖进页面去就行
